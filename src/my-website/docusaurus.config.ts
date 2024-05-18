@@ -53,7 +53,35 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'neetcode150',
+        path: 'neetcode150',
+        routeBasePath: 'neetcode150',
+        sidebarPath: require.resolve('./sidebars.ts'),
+      }, 
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'grind169',
+        path: 'grind169',
+        routeBasePath: 'grind169',
+        sidebarPath: require.resolve('./sidebars.ts'),
+      }, 
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'others',
+        path: 'others',
+        routeBasePath: 'others',
+        sidebarPath: require.resolve('./sidebars.ts'),
+      }, 
+    ],
+  ],
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -70,7 +98,24 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/neetcode150', label: 'NeetCode 150', position: 'left'},
+        {
+          type: 'docSidebar',
+          label: 'Grind 169',
+          href: '/grind169/intro',
+          sidebarId: 'tutorialSidebar',
+        },
+        {
+          type: 'docSidebar',
+          label: 'Neetcode 150',
+          href: '/neetcode150/intro',
+          sidebarId: 'tutorialSidebar',
+        },
+        {
+          type: 'docSidebar',
+          label: 'Others',
+          href: '/others/intro',
+          sidebarId: 'tutorialSidebar',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
