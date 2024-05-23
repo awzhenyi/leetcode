@@ -1,0 +1,1 @@
+TBC. memory reference. how linked list pointer works where u can attach dummy infront. 

@@ -81,6 +81,15 @@ const config: Config = {
         sidebarPath: require.resolve('./sidebars.ts'),
       }, 
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'random',
+        path: 'random',
+        routeBasePath: 'random',
+        sidebarPath: require.resolve('./sidebars.ts'),
+      }, 
+    ],
   ],
   themeConfig: {
     // Replace with your project's social card
@@ -114,6 +123,12 @@ const config: Config = {
           type: 'docSidebar',
           label: 'Others',
           href: '/others/intro',
+          sidebarId: 'tutorialSidebar',
+        },
+        {
+          type: 'docSidebar',
+          label: 'Random Info',
+          href: '/random/intro',
           sidebarId: 'tutorialSidebar',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
