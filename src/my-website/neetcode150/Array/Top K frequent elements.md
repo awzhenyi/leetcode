@@ -2,6 +2,16 @@ https://leetcode.com/problems/top-k-frequent-elements/
 
 
 Sort
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = Counter(nums)
+        sorted_count = sorted([(v, k) for k,v in count.items()], reverse=True)
+        return [num for freq, num in sorted_count[:k]]
+
+# Time Complexity: O(N Log N)
+# Space Complexity: O(N)
+```
 
 Heap (K Log N)
 ```python
@@ -39,6 +49,8 @@ class Solution:
 #Space Complexity: O(K)
 ```
 
-Quick select (O (N)) average
+Quick select in O(N) average, worst case O(N^2)
+Reference: kth order statistic in O(N): https://cp-algorithms.com/sequences/k-th.html
 ```python
+
 ```
