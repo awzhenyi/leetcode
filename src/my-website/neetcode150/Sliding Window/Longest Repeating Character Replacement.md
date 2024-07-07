@@ -1,3 +1,8 @@
+---
+tags: 
+ - Medium
+---
+
 https://leetcode.com/problems/longest-repeating-character-replacement/
 
 maintain a count of frequency of characters and a max_frequency variable. condition for moving left pointer is when (r- l + 1) - max_frequency > k

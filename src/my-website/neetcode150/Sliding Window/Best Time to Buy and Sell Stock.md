@@ -1,3 +1,9 @@
+---
+sidebar position: 1,
+tags: 
+ - Easy
+---
+
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 left pointer to be buy time, anytime you encounter a lower price move l = r, while l is not moving calculate max profit.

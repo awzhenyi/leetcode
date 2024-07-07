@@ -1,3 +1,8 @@
+---
+tags: 
+ - Medium
+---
+
 https://leetcode.com/problems/permutation-in-string/
 
 Sliding window, account for 3 cases.

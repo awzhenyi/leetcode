@@ -1,3 +1,8 @@
+---
+tags: 
+ - Medium
+---
+
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 Standard sliding window with a certain condition
