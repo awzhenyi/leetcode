@@ -1,6 +1,9 @@
 https://leetcode.com/problems/invert-binary-tree/
 
--
+1. Base case: if not node, return None
+2. left = recurse(node.right), right = recurse(node.left)
+3. set node.left = right, node.right = left
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -29,6 +32,6 @@ class Solution:
     #  4
     # 7  2
     #9 6 3 1
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(N)
+# Space Complexity: O(N)
 ```

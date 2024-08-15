@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/subsets/
 
 Get all possible subsets solution #1
@@ -15,6 +20,24 @@ class Solution:
 #Time Complexity: O(n * 2^n)
 #Space Complexity: O(n * 2^n)
 ```
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:        
+        ans = []
+        def dfs(idx, accum):
+            nonlocal ans
+            ans.append(accum[:])
+            for i in range(idx, len(nums)):
+                accum += [nums[i]]
+                dfs(i+1, accum)
+                accum.pop()
+        dfs(0, [])
+        return ans
+# Time Complexity: O()
+# Space Complexity: O()
+```
+
 Solution #2 with backtracking. Explore both choices of pick and not pick.
 
 ```python
