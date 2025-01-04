@@ -1,0 +1,28 @@
+---
+tags:
+ - Easy
+---
+
+https://leetcode.com/problems/reverse-linked-list
+
+1. keep track of prev, curr and next. play around the swaps. prev is your return node.
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, curr = None, head
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+
+# Time Complexity: O(N)
+# Space Complexity: O(1)
+```
