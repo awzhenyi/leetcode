@@ -24,8 +24,8 @@ class Solution:
         dfs(root)
         return inorder[k-1]
 
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(N)
+# Space Complexity: O(N)
 ```
 
 2. Iterative with early termination
@@ -51,6 +51,6 @@ class Solution:
                 return curr.val
             curr = curr.right
 
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(K)
+# Space Complexity: O(K)
 ```
