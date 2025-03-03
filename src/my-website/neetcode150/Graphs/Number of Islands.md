@@ -3,10 +3,10 @@ tags:
  - Medium
 ---
 
-https://leetcode.com/problems/number-of-islands/
+[Number of Islands - LeetCode](https://leetcode.com/problems/number-of-islands/)
 
 1. Check with interviewer if u are allowed to overwrite inputs, else just copy array
-DFS on every instance of island, check conditions: 0 <= r < ROWS and 0 <= c < COLS and grid[r][c] == "1" and (r,c) not in visited:
+DFS on every instance of island, check conditions: `0 <= r < ROWS and 0 <= c < COLS` and `grid[r][c] == "1"` and (r,c) not in visited:
 
 ```python
 class Solution:
@@ -38,7 +38,7 @@ class Solution:
 # Space Complexity: O(MN)
 ```
 
-BFS on every instance of island, check conditions: 0 <= r < ROWS and 0 <= c < COLS and grid[r][c] == "1" and (r,c) not in visited:
+BFS on every instance of island, check conditions: `0 <= r < ROWS and 0 <= c < COLS` and `grid[r][c] == "1"` and (r,c) not in visited:
 
 ```python
 class Solution:
@@ -124,7 +124,7 @@ class Solution:
         # for each starting point, we will apply a search algorithm to find the connected parts of the island
 ```
 
-Do not modify inputs II. deepcopy the grid, ie new_grid = [row[:] for row in grid]
+Do not modify inputs II. deepcopy the grid, ie `new_grid = [row[:] for row in grid]`
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:

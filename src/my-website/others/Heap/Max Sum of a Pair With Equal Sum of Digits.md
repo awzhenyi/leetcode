@@ -8,7 +8,7 @@ tags:
 https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits
 
 math -> how to get sum digits using mod and //
-heap simulate -> always keep heap size <= 2
+heap simulate -> always keep `heap size <= 2`
 
 ```python
 class Solution:

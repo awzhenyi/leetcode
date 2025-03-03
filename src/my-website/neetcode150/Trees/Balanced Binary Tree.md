@@ -2,9 +2,9 @@ https://leetcode.com/problems/balanced-binary-tree/
 
 1. Let your recursion return 2 things, a flag for whether the tree is balanced, plus the max depth of either the left or right subtree.
 2. Base case: if not node, return [True, 0]. Trivially balanced tree with 0 depth
-3. call left = dfs(node.left), right = dfs(node.right)
-4. left[0] and right[0] and abs(r - l) < 2 siginifies balanced tree at this node
-5. return [l[0] and r[0], abs(r-l)<2, 1 + max(left[1], right[1])]
+3. call `left = dfs(node.left)`, `right = dfs(node.right)`
+4. left[0] and right[0] and `abs(r - l) < 2` siginifies balanced tree at this node
+5. return [l[0] and r[0], `abs(r-l)<2`, 1 + max(left[1], right[1])]
 
 ```python
 # Definition for a binary tree node.
