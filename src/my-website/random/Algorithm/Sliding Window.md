@@ -1,1 +1,0 @@
-# Template for sliding window that can solve most questions
