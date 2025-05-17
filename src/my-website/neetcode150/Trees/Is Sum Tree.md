@@ -1,3 +1,5 @@
+Given a binary tree, the task is to check if it is a Sum Tree. A Sum Tree is a Binary Tree where the value of a node is equal to the sum of the nodes present in its left subtree and right subtree. An empty tree is Sum Tree and the sum of an empty tree can be considered as 0. A leaf node is also considered a Sum Tree.
+
 ```python
 class Node:
     def __init__(self, val):
@@ -33,6 +35,6 @@ if __name__ == '__main__':
     root = s.buildTree()
     print(s.isSumTree(root))
 
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(N)
+# Space Complexity: determined by depth of recursion stack, O(N) worst case on a skewed tree, O(log n) on average
 ```

@@ -54,3 +54,26 @@ class Solution:
 # Time Complexity: O(K)
 # Space Complexity: O(K)
 ```
+
+3. Recursive with early termination
+```python
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        position = 0
+        def dfs(node):
+            if not node:
+                return -1
+            nonlocal position
+            left = dfs(node.left)
+            if left != -1:
+                return left
+            position += 1
+            if position == k:
+                return node.val
+            return dfs(node.right)
+
+        return dfs(root)
+
+# Time Complexity: O(K)
+# Space Complexity: O(K)
+```

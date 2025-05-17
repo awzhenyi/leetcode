@@ -1,3 +1,6 @@
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+
 1. get root node (preorder = 1st, postorder = last)
 2. Find the root node index in inorder. Recurse left on left of inorder[:idx], right on inorder[idx+1:], exclude root index
 3. Same for preorder and postorder, u exclude the root, and split left and right accordingly to index found in step 2.
@@ -19,7 +22,7 @@ class Solution:
         node.right = self.buildTree(preorder[idx+1:], inorder[idx+1:])
         return node
 
-# Time Complexity: O(N)
+# Time Complexity: O(N^2)
 # Space Complexity: O(N)
 ```
 
@@ -40,6 +43,39 @@ class Solution:
         node.right = self.buildTree(inorder[idx+1:], postorder[idx:-1])
         return node
     
+# Time Complexity: O(N^2)
+# Space Complexity: O(N)
+```
+Optimized O(N). Notice that index and list splice is a O(N) operation. These can be optimized to a O(1) operation
+1. Use a hashmap to store the index
+2. Use left and right pointers to mark the start and end of the list instead of splicing    
+```python
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        # Build a hashmap to store value -> index relations for inorder traversal
+        inorder_index_map = {val: idx for idx, val in enumerate(inorder)}
+
+        # Initialize a pointer to keep track of the current root in preorder traversal
+        self.preorder_index = 0
+
+        def arrayToTree(left: int, right: int) -> Optional[TreeNode]:
+            if left > right:
+                return None
+
+            # Get the current root value and move the pointer forward
+            root_val = preorder[self.preorder_index]
+            self.preorder_index += 1
+
+            # Create the root node
+            root = TreeNode(root_val)
+
+            # Build left and right subtree using inorder_index_map
+            root.left = arrayToTree(left, inorder_index_map[root_val] - 1)
+            root.right = arrayToTree(inorder_index_map[root_val] + 1, right)
+
+            return root
+
+        return arrayToTree(0, len(inorder) - 1)
 # Time Complexity: O(N)
 # Space Complexity: O(N)
 ```

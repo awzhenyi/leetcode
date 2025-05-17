@@ -14,19 +14,19 @@ https://leetcode.com/problems/validate-binary-search-tree/
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def dfs(node, left_bound, right_bound):
+        # Define a bound as you cannot be X than X_bound
+        # you cannot be smaller than (or equals to) smaller_bound
+        # you cannot be greater than (or equals to) greater_bound
+        def dfs(node, smaller_bound, greater_bound):
             if not node:
                 return True
-            if node.val >= left_bound or node.val <= right_bound:
+            if node.val <= smaller_bound or node.val >= greater_bound:
                 return False
-
-            l = dfs(node.left, node.val, right_bound)
-            r = dfs(node.right, left_bound, node.val)
-
-            return l and r
-        return dfs(root, inf, -inf)
-# Time Complexity: O(N)
-# Space Complexity: O(N)
+            left = dfs(node.left, smaller_bound, node.val)
+            right = dfs(node.right, node.val, greater_bound)
+            return left and right
+        return dfs(root, -inf, inf)# Time Complexity: O(N)
+# Space Complexity: O(log N) balanced tree recursion depth ~(log N)
 ```
 
 1. using inorder traversal properties, a BST will have a sorted inorder output
