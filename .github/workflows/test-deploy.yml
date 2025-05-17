@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./src/my-website
+        working-directory: src/my-website
     steps:
       - uses: actions/checkout@v4
         with:
