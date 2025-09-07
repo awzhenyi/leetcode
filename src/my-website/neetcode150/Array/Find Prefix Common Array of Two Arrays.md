@@ -3,7 +3,7 @@ tags:
  - Medium
 ---
 
-https://leetcode.com/problems/find-the-prefix-common-array-of-two-array
+https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays
 
 keep rolling count of common words and two sets based on some conditions:
 1. if A[i] == B[i]

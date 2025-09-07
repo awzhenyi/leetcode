@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache-dependency-path: src/my-website/package-lock.json
-          node-version: 18
+          node-version: 20.18.1
           cache: yarn
 
       - name: Install dependencies
