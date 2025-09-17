@@ -1,6 +1,12 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/product-of-array-except-self/
 
-prefix and suffix sum but cleverly use the answer array to do intermediate operations
+- prefix and suffix sum but cleverly use the answer array to do intermediate operations
+- use a temp variable to store the running product, multiply the result by the temp first before multiplying the temp so that `except self` is achieved
 
 ```python
 class Solution:
@@ -20,6 +26,6 @@ class Solution:
         
         return ans
         
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(N)
+# Space Complexity: O(N)
 ```

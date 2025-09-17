@@ -1,6 +1,7 @@
 ---
 tags:
  - Medium
+sidebar_position: 1
 ---
 
 https://leetcode.com/problems/combination-sum/
@@ -12,7 +13,7 @@ class Solution:
         candidates.sort()
         def backtrack(i, accum, path):
             if accum == target:
-                output.append(path[:])
+                output.append(path[:]) # need to copy because reference of list, but if return a new list directly in the function no need to copy
                 return
             if accum > target:
                 return
@@ -20,9 +21,9 @@ class Solution:
             for idx in range(i, len(candidates)):
                 if accum + candidates[idx] > target:
                     continue
-                #path += [candidates[idx]]
-                backtrack(idx, accum + candidates[idx], path + [candidates[idx]]) #can reuse so not idx + 1
-                #path.pop()
+                path += [candidates[idx]]
+                backtrack(idx, accum + candidates[idx], path) #alternative instead of adding and popping, use backtrack(idx, accum + candidates[idx], path + [candidates[idx]]), this creates a new list
+                path.pop()
 
         backtrack(0, 0, [])
         return output

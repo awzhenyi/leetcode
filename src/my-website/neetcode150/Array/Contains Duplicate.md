@@ -1,3 +1,8 @@
+---
+tags:
+ - Easy
+---
+
 https://leetcode.com/problems/contains-duplicate/
 
 Use dictionary / hashmap to keep track of any number appearing more than once

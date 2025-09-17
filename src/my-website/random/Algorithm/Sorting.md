@@ -35,6 +35,16 @@ class Solution:
             k += 1
         return nums
     
+    def readableQuickSort(self, nums):
+        if len(nums) <= 1:  # base case
+            return nums
+            
+        pivot = random.randint(0, len(nums)-1)
+        left = [x for x in nums if x < nums[pivot]]
+        right = [x for x in nums if x > nums[pivot]]
+        middle = [x for x in nums if x == nums[pivot]]
+        return self.readableQuickSort(left) + middle + self.readableQuickSort(right)
+
     def quickSort(self, nums):
         def helper(head, tail):
             if head >= tail: return 

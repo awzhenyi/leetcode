@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/valid-sudoku/
 
 3 pass check row, col and box
