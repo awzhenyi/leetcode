@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/group-anagrams/
 
 1. Use sorted string as the key to determine anagrams.

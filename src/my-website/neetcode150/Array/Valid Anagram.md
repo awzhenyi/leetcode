@@ -1,3 +1,8 @@
+---
+tags:
+ - Easy
+---
+
 https://leetcode.com/problems/valid-anagram/
 
 Use Counter to get a dictionary of counts

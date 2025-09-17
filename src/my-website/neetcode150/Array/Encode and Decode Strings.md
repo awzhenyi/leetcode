@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/encode-and-decode-strings/
 
 1. Given constraint of all possible characters, not only limited to ASCII characters, we use escaping as solution
