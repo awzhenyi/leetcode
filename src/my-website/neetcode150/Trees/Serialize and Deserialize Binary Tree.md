@@ -21,36 +21,38 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        # Traverse in preorder
-        # if there is a node, we append the value to the string
-        # we append "N" to the string to represent null nodes
-        serialized_string = []
-        def traverse(node):
-            if not node:            
-                serialized_string.append("N")
+        encoded = []
+        def dfs(node):
+            if not node:
+                encoded.append("N")
                 return
-            serialized_string.append(str(node.val))
-            traverse(node.left)
-            traverse(node.right)
-        traverse(root)
-        return ','.join(serialized_string)
+            encoded.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+        dfs(root)
+        return ','.join(encoded)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
+        
         :type data: str
         :rtype: TreeNode
-        """ 
-        data = data.split(",")
-        def buildTree(serialized_data, idx):
-            if data[idx] == "N":
+        """
+        idx = 0
+        decoded = data.split(',')
+        def build():
+            nonlocal idx
+            if decoded[idx] == 'N':
+                idx += 1
                 return None
-            node = TreeNode(int(serialized_data[idx]))
+            node = TreeNode(int(decoded[idx]))
             idx += 1
-            node.left = buildTree(serialized_data, idx)
-            node.right = buildTree(serialized_data, idx)
+            node.left = build()
+            node.right = build()
             return node
 
-        return buildTree(data, 0)
+        return build()
+
 # Your Codec object will be instantiated and called as such:
 # ser = Codec()
 # deser = Codec()
@@ -58,4 +60,25 @@ class Codec:
 
 # Time Complexity: O(N)
 # Space Complexity: O(N)
+```
+
+using iterator instead of index
+```python
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+        decoded = iter(data.split(','))
+        def build():
+            val = next(decoded)
+            if val == 'N':
+                return None
+            node = TreeNode(int(val))
+            node.left = build()
+            node.right = build()
+            return node
+
+        return build()
 ```

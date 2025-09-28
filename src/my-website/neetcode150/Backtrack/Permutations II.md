@@ -1,6 +1,8 @@
 ---
 tags:
  - Medium
+
+sidebar_position: 6
 ---
 
 https://leetcode.com/problems/permutations-ii

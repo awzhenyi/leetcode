@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/count-good-nodes-in-binary-tree/
 1. pass a bound which is the current max that the path has seen, so node at each level knows what value to compare against.
 2. base case, if not node: return 0, since this function returns the number of good nodes

@@ -1,3 +1,8 @@
+---
+tags:
+ - Easy
+---
+
 https://leetcode.com/problems/same-tree/
 
 1. Given 2 nodes p, q, check if they are the same tree

@@ -1,8 +1,13 @@
+---
+tags:
+ - Hard
+---
+
 https://leetcode.com/problems/binary-tree-maximum-path-sum
 
 1. Base case return 0
 2. At each node, calculate the max_sum (nonlocal variable) to be max_sum = max(max_sum, left + right + node)
-3. Why u can simply take curr_path_sum to be left + right + ndoe, because the return from step 4. gaurantees either a postive value, or if all paths are negative, 0.
+3. Why u can simply take curr_path_sum to be left + right + node.val, because the return from step 4. gaurantees either a postive value, or if all paths are negative, 0.
 4. Returns max(left + node.val, right + node.val , 0) to parent node.
 
 ```python

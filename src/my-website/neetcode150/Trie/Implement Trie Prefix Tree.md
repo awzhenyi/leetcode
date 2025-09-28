@@ -3,6 +3,8 @@ tags:
  - Medium
 ---
 
+https://leetcode.com/problems/implement-trie-prefix-tree/
+
 ```python
 class TrieNode:
     def __init__(self):
@@ -17,7 +19,7 @@ class Trie:
     def insert(self, word: str) -> None:
         curr = self.root
         for c in word:
-            if c not in curr.children.keys():
+            if c not in curr.children:
                 curr.children[c] = TrieNode()
             curr = curr.children[c]
         curr.doesWordExist = True
@@ -25,7 +27,7 @@ class Trie:
     def search(self, word: str) -> bool:
         curr = self.root
         for c in word:
-            if c not in curr.children.keys():
+            if c not in curr.children:
                 return False
             curr = curr.children[c]
         return curr.doesWordExist
@@ -33,7 +35,7 @@ class Trie:
     def startsWith(self, prefix: str) -> bool:
         curr = self.root
         for c in prefix:
-            if c not in curr.children.keys():
+            if c not in curr.children:
                 return False
             curr = curr.children[c]
         return True
@@ -45,10 +47,21 @@ class Trie:
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
 
-# Time Complexity: O(N) for insert and search
-# Space Complexity: O(N) for insert, O(1) for search
-```
+#Insert:
+#Time: O(L)
+#Space: O(L) per new word, O(N·L) total
 
+#Search (exact):
+#Time: O(L)
+#Space: O(1)
+
+#StartsWith:
+#Time: O(P)
+#Space: O(1)
+
+#Total space usage:
+#O(N·L) in the worst case, but much smaller with prefix reuse (shared nodes).
+```
 
 ```java
 

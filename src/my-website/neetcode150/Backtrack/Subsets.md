@@ -24,6 +24,23 @@ class Solution:
 
 ```python
 class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        output = []
+        def backtrack(i, path):
+            output.append(path[:])
+            for idx in range(i, len(nums)):
+                path.append(nums[idx])
+                backtrack(idx+1, path)
+                path.pop()
+
+        backtrack(0, [])
+        return output
+# Time Complexity: O()
+# Space Complexity: O()
+```
+
+```python
+class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:        
         ans = []
         def dfs(idx, accum):

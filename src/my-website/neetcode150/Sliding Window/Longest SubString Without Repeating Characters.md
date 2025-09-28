@@ -22,5 +22,5 @@ class Solution:
         return longest_substr_len
 
 # Time Complexity: O(N)
-# Space Complexity: O(N)
+# Space Complexity: O(26) == O(1)
 ```

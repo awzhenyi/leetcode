@@ -1,6 +1,8 @@
 ---
 tags:
  - Medium
+
+sidebar_position: 5
 ---
 
 https://leetcode.com/problems/permutations/

@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/container-with-most-water/
 
 Move left and right pointer until a possible bigger area, ie the height is higher than min_height of current l and r pointer.

@@ -1,4 +1,10 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+<br/>
 https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 
 1. get root node (preorder = 1st, postorder = last)
@@ -76,6 +82,30 @@ class Solution:
             return root
 
         return arrayToTree(0, len(inorder) - 1)
+# Time Complexity: O(N)
+# Space Complexity: O(N)
+```
+
+postorder linear time and space, build from right instead of left
+```python
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        valToIdxMap = {v : i for i, v in enumerate(inorder)}
+        postorder_idx = len(postorder) - 1
+        def build(left, right):
+            nonlocal postorder_idx
+            if left > right:
+                return
+            node_val = postorder[postorder_idx]
+            postorder_idx -= 1
+            inorder_idx = valToIdxMap[node_val]
+            node = TreeNode(node_val)
+            node.right = build(inorder_idx + 1 , right)
+            node.left = build(left, inorder_idx - 1)
+            return node
+
+        return build(0, len(inorder) - 1)
+    
 # Time Complexity: O(N)
 # Space Complexity: O(N)
 ```
