@@ -1,3 +1,8 @@
+---
+tags:
+ - Easy
+---
+
 https://leetcode.com/problems/diameter-of-binary-tree/
 
 1. nonlocal diameter variable

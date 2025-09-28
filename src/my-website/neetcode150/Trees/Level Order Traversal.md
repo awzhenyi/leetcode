@@ -1,3 +1,8 @@
+---
+tags:
+ - Medium
+---
+
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 1. standard bfs queue and print node.val

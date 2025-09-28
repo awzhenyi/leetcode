@@ -18,7 +18,6 @@ class Solution:
         for l, h, r in events:
             while max_heap[0][1] <= l: #pop the events that have "ended". (ie R is < L)
                 heapq.heappop(max_heap)
-            print(h)
             if h < 0:
                 heapq.heappush(max_heap, (h, r)) #pop start event to track "highest height"
             if not res or res[-1][1] != -max_heap[0][0]: # Add the contour. This is also to add the end_event height after popping.

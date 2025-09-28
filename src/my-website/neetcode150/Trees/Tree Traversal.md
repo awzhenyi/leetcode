@@ -1,7 +1,7 @@
 # Tree traversal
-1. Inorder
-2. Preorder
-3. Postorder
+1. Inorder (https://leetcode.com/problems/binary-tree-inorder-traversal)
+2. Preorder (https://leetcode.com/problems/binary-tree-preorder-traversal)
+3. Postorder (https://leetcode.com/problems/binary-tree-postorder-traversal)
 
 ```python
 class Solution:

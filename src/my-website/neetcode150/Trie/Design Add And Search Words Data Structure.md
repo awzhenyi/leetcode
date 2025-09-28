@@ -52,5 +52,6 @@ class WordDictionary:
 # param_2 = obj.search(word)
 
 # Time complexity: O(M) for the "well-defined" words without dots, where M is the key length, and N is a number of keys, and O(N⋅26^M) for the "undefined" words. That corresponds to the worst-case situation of searching an undefined word M times which is one character longer than all inserted keys.
+# basically around O(L) for defined search, O(26 ^ L) for wildcards
 # Space Complexity: O(N) for recursion stack
 ```

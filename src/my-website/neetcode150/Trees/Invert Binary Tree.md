@@ -1,3 +1,8 @@
+---
+tags:
+ - Easy
+---
+
 https://leetcode.com/problems/invert-binary-tree/
 
 1. Base case: if not node, return None
