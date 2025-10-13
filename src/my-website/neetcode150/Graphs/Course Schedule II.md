@@ -7,34 +7,36 @@ https://leetcode.com/problems/course-schedule-ii
 
 1. Build a valid toposort using cycle detection
 2. A DAG with no cycles will always have a valid toposort. Conversely, a cyclic graph will not have a toposort
+3. Think about how the dependency is represented. The first course to be appended to the order is the first course that needs to be taken. Hence it should be graph[b].append(a)
 
 ```python
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         graph = defaultdict(list)
         for a, b in prerequisites:
-            graph[b].append(a)
-        
-        topo_sort = []
+            # key = course, value = list of courses that you have to take before key
+            graph[a].append(b)
+
         visited = [0] * numCourses
-        def isCyclic(node):
-            if visited[node] == 1:
+        order = []
+        def isCyclic(course):
+            if visited[course] == 1:
                 return True
             
-            visited[node] = 1
-            for neighbour in graph[node]:
-                if visited[neighbour] != 2 and isCyclic(neighbour):
+            visited[course] = 1
+            for prereq in graph[course]:
+                if visited[prereq] != 2 and isCyclic(prereq):
                     return True
-            topo_sort.append(node)
-            visited[node] = 2
-            return False
+                
+            visited[course] = 2
+            # The first course to be appended is the first course that needs to be taken
+            order.append(course)
         
-        for i in range(numCourses):
-            if visited[i] == 0:
-                isCyclic(i)
+        for course in range(numCourses):
+            if not visited[course]:
+                isCyclic(course)
 
-        return topo_sort[::-1] if len(topo_sort) == numCourses else []
-
+        return order if len(order) == numCourses else []
 # Time Complexity: O(V + E)
 # Space Complexity: O(V + E)
 ```

@@ -3,7 +3,7 @@ tags:
  - Medium
 ---
 
-[Number of Islands - LeetCode](https://leetcode.com/problems/number-of-islands/)
+https://leetcode.com/problems/number-of-islands/
 
 1. Check with interviewer if u are allowed to overwrite inputs, else just copy array
 DFS on every instance of island, check conditions: `0 <= r < ROWS and 0 <= c < COLS` and `grid[r][c] == "1"` and (r,c) not in visited:

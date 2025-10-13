@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 ```python
 from collections import Counter
 class Solution:

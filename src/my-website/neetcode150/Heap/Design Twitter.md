@@ -4,6 +4,10 @@ tags:
 ---
 
 https://leetcode.com/problems/design-twitter/
+1. maintain a map of followers
+2. maintain a map of tweets posted by each user
+3. add a variable that increments to simulate the timeline of tweets
+4. to get 10 recent tweets, maintain a heap of max size 10 for all the followees of the user and the user himself
 
 ```python
 class Twitter:
@@ -47,6 +51,7 @@ class Twitter:
 # param_2 = obj.getNewsFeed(userId)
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
-# Time Complexity: O()
-# Space Complexity: O()
+
+# Time Complexity: O(K) for get news feed, heap size is max 10, so log 10 is constant but u will do K operations, where K is total tweets of user + followers
+# Space Complexity: O(N^2) if every user follows each other, where N is total number of users
 ```
