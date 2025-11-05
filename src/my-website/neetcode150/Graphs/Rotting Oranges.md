@@ -5,7 +5,7 @@ tags:
 
 https://leetcode.com/problems/rotting-oranges
 
-1. Standard BFS
+1. Standard BFS, but multisource. So at the start preprocess all the possible sources and put it into the queue
 
 ```python
 class Solution:
@@ -20,7 +20,6 @@ class Solution:
                 if grid[i][j] == 1:
                     fresh_oranges.add((i,j))
                 elif grid[i][j] == 2:
-                    #visited.add((i,j))
                     queue.append((i,j,0))
         while queue:
             r, c, mins = queue.popleft()

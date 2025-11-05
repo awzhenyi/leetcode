@@ -26,7 +26,7 @@ class Solution:
             visited[node] = 2
             return False
 
-        return not isCyclic(0, -1) and sum(visited) == n*2
+        return not isCyclic(0, -1) and all(state == 2 for state in visited) #if the tree is disconnected, not all visited[node] == 2
 
 # Time Complexity: O(V+E)
 # Space Complexity: O(V+E)

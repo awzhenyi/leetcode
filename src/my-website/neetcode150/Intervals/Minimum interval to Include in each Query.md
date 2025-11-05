@@ -25,5 +25,5 @@ class Solution:
                 
         return [queries_to_res_map[query] for query in queries]
 # Time Complexity: O(n log n + m log m), where n is the number of intervals and m is the number of queries.
-# Space Complexity: O()
+# Space Complexity: O(n+m)
 ```

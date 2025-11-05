@@ -4,9 +4,9 @@ tags:
 ---
 
 https://leetcode.com/problems/surrounded-regions
-1. queue all the possible starting points
-2. Modify during BFS
-3. Anything that is left over cant be surrounded
+1. queue all the possible starting points ('O's that are from the edges will not be surrounded)
+2. Modify during BFS of these 'O' starting point to another letter
+3. Anything that is left over can then be blanket changed to 'X', including 'O's that will be surrounded and swapped to 'X's
 
 ```python
 class Solution:

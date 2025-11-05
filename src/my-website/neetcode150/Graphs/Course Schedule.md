@@ -14,7 +14,7 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = defaultdict(list)
         for a, b in prerequisites:
-            graph[b].append(a)
+            graph[a].append(b)
         
         visited = [0] * numCourses
         def isCyclic(node):

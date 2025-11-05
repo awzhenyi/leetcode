@@ -5,7 +5,7 @@ tags:
 
 https://leetcode.com/problems/jump-game-ii/
 
-BFS style (go by level, at each level check the furthest u can reach, that will be the end_bound of the next level).
+BFS style (go by level, at each level check the furthest u can reach, that will be the end_bound of the next level). BFS works because we are finding minimum jumps to get to last index.
 
 ```python
 class Solution:

@@ -22,24 +22,23 @@ class Node:
 from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        if not node:
-            return None
-        cloned = {}
-        def dfs(node):
-            if node in cloned.keys():
+        def dfs(node, cloned):
+            if not node:
+                return
+            if node in cloned:
                 return cloned[node]
-            copy = Node(node.val)
-            cloned[node] = copy
-            for neighbor in node.neighbors:
-                copy.neighbors.append(dfs(neighbor))
-            return copy
-        return dfs(node)
+            clone = Node(node.val)
+            cloned[node] = clone
+            for neighbour in node.neighbors:
+                clone.neighbors.append(dfs(neighbour, cloned))
+            return clone
+        return dfs(node, {})
 
 
 # node 1, neighbours : 2, 4
 # node 2, neighbours : 1, 3
 # node 3, neighbours : 2, 4
 # node 4, neighbours : 1, 3
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(V + E) each node is visited once
+# Space Complexity: O(V) each node is cloned once + recursion depth = V
 ```

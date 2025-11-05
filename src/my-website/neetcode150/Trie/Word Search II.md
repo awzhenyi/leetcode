@@ -12,7 +12,6 @@ https://leetcode.com/problems/word-search-ii
 ```python
 class TrieNode:
     def __init__(self):
-        self.isWord = False
         self.word = None
         self.children = {}
 
@@ -36,11 +35,12 @@ class Solution:
         ROWS = len(board)
         COLS = len(board[0])
         matched_words = []
-        def backtrack(r, c, parent):
+        def backtrack(r, c, parent, visited):
             letter = board[r][c]
             curr = parent[letter]
-            if curr.word is not None:
+            if curr.word:
                 matched_words.append(curr.word)
+                # to prevent duplicates in output since word can only be matched once
                 curr.word = None
             board[r][c] = '#'
             for _r, _c in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:
@@ -56,7 +56,9 @@ class Solution:
             for c in range(COLS):
                 if board[r][c] in trie.root.children:
                     backtrack(r, c, trie.root.children)
+                    
         return matched_words
+
 # Time complexity: O(M(4 * (3^(L−1)), where M is the number of cells in the board and L is the maximum length of words.
 # Space Complexity: O(N), where N is the total number of letters in the trie
 ```

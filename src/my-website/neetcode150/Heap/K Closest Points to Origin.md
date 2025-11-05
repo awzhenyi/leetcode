@@ -15,6 +15,6 @@ class Solution:
             if len(heap) > k:
                 heapq.heappop(heap)
         return [[x,y] for dist, x, y in heap]
-# Time Complexity: O()
-# Space Complexity: O()
+# Time Complexity: O(N log K)
+# Space Complexity: O(K)
 ```

@@ -5,6 +5,10 @@
 ### Shift
 
 ### left shift
+- `x << n` is equivalent to `x *= (2 ^ n)`
+
+### right shift
+- `x >> n` is equivalent to `x //= (2 ^ N)`
 
 #### Use cases
 
