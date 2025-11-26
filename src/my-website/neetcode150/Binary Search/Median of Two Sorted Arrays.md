@@ -1,9 +1,33 @@
 ---
+sidebar_position: 7
 tags:
  - Hard
 ---
 
 https://leetcode.com/problems/median-of-two-sorted-arrays
+
+## Problem Understanding
+Find the median of two sorted arrays. The median is the middle value when arrays are combined and sorted. If the combined length is even, it's the average of the two middle values.
+
+## Approach 1: Binary Search with Partitioning (Optimal)
+The key insight is to partition both arrays such that the left halves contain exactly half the elements, and all elements in the left halves are ≤ all elements in the right halves.
+
+**Core Concept**:
+- Imagine drawing a partition line in each array that divides it into left and right parts
+- We want: `left_part_size = (total_length + 1) // 2` (handles both even and odd cases)
+- The partition is correct when: `max(left_part) ≤ min(right_part)` for both arrays
+- Once we find the correct partition, the median is just `max(left_part)` or `(max(left_part) + min(right_part)) / 2`
+
+**Why Binary Search Works**:
+- We only need to search the shorter array (optimization)
+- The partition in the longer array is automatically determined: `partitionY = required - partitionX`
+- If left part of array1 is too large → move partition left
+- If left part of array1 is too small → move partition right
+- This creates a binary search space
+
+**Edge Cases**:
+- Use `-inf` when partition is at the start (no left element)
+- Use `+inf` when partition is at the end (no right element)
 
 ```python
 class Solution:
@@ -41,8 +65,32 @@ class Solution:
                 l = partitionX + 1
 
     # Time Complexity: O(log min(N, M))
+    #   - Binary search on the shorter array only
+    #   - Each iteration eliminates half the search space
+    #   - If shorter array has length M, we do log(M) iterations
     # Space Complexity: O(1)
+    #   - Only using constant extra variables, no additional data structures
 
+## Approach 2: Merge Until Median (Simpler but Slower)
+Merge the two sorted arrays until we reach the median position(s), then return the median value(s).
+
+**How it works**:
+- Use two pointers to merge both arrays in sorted order
+- Track the current index as we merge
+- When we reach the median index(es), save those values
+- For even length: need the two middle values
+- For odd length: need only the middle value
+
+**Why it's simpler**:
+- Straightforward merge logic (like merging in merge sort)
+- Easy to understand and implement
+- No complex partition logic
+
+**Trade-off**:
+- Slower: O(N) time vs O(log N) for approach 1
+- But more intuitive for those familiar with merging
+
+```python
     def findMedianSortedArrays2(self, nums1: List[int], nums2: List[int]) -> float:
         m, n = len(nums1), len(nums2)
         mid_index = (m + n) // 2 #total is 10, idx 5, total is 9, idx = 4 -> middle number
@@ -70,7 +118,10 @@ class Solution:
         else: 
             return mid2
 
- 
-    # Time Complexity: O(N)
+    # Time Complexity: O(N + M)
+    #   - In worst case, we merge until we reach the median position
+    #   - This requires traversing up to (N+M)/2 elements
+    #   - Simplified to O(N) where N = total length
     # Space Complexity: O(1)
+    #   - Only using constant extra variables for pointers and tracking
 ```
