@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 tags:
  - Easy
 ---
@@ -8,7 +9,7 @@ https://leetcode.com/problems/binary-search
 1. Keep target in search space, as a generic template. do the processing after the binary search ends.
 2. Since mid = (l + r) // 2 means that mid == left if there are only 2 elements (eg: l = 0, r = 1, mid = 0), then l = mid cannot be a possible cutoff. If not you will get stuck in infinite loop
 3. which makes the if condition: nums[mid] >= target: r = mid. else: l = mid + 1
-4. check the remaining idx: if nums[l] == target.
+4. check the remaining idx: if nums[l] == target. with `l < r` as the while condition, the loop will break when l == r.
 
 ```python
 class Solution:

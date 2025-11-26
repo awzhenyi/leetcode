@@ -1,3 +1,9 @@
+---
+sidebar_position: 7
+tags:
+ - Medium
+---
+
 ```python
 class Solution:
     def wallsAndGates(self, rooms: List[List[int]]) -> None:

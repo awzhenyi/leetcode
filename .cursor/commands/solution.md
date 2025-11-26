@@ -1,0 +1,4 @@
+- Assess the current markdown file, it will be a solution of the leetcode problem.
+- Explain how and why the solution works.
+- If the file contains additional information on how to solve the question, check if everything mentioned is correct or what can be improved. Add layman explanations if they are not present, do not be super analytical over every function and every line of code, but just the general core information and pointers of what is needed to solve the problem.
+- If in edit mode, only suggest change to the explanation. Also add on the explanation of space and time complexity which is found at the bottom of the code portion if they are not sufficient. Do not suggest edit to the code itself.
