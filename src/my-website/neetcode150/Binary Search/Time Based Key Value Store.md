@@ -1,5 +1,5 @@
 ---
-sidebar_postion: 4
+sidebar_position: 4
 tags:
  - Medium
 ---
