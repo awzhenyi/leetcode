@@ -45,24 +45,23 @@ class Solution:
         # m + n = 9, m + n + 1 // 2 -> 5. 5 numbers is good because it covers the midpoint
         # m + n = 10, m + n + 1 // 2 -> 5. 5 numbers is good because the median will be make up of 5th and 6th number
         while l <= r:
-            partitionX = (l + r) // 2
-            partitionY = required - partitionX
+            partition1 = (l + r) // 2
+            partition2 = required - partition1
             #we want 4 numbers
-            leftX = nums1[partitionX - 1] if partitionX > 0 else float('-inf') #arbitarily small number so it has no effect when calling min.
-            rightX = nums1[partitionX] if partitionX < m else float('inf')
-            leftY = nums2[partitionY - 1] if partitionY > 0 else float('-inf')
-            rightY = nums2[partitionY] if partitionY < n else float('inf')
+            left1 = float('-inf') if partition1 == 0 else nums1[partition1 - 1] #arbitarily small number so it has no effect when calling min.
+            right1 = float('inf') if partition1 == len(nums1) else nums1[partition1]
+            left2 = float('-inf') if partition2 == 0 else nums2[partition2 - 1]
+            right2 = float('inf') if partition2 == len(nums2) else nums2[partition2]
 
             # How do we know our partition is correct. when leftX <= rightY and leftY <= rightX
-            if leftX <= rightY and leftY <= rightX:
+            if left1 <= right2 and left2 <= right1:
                 if (m + n) % 2 == 0:
-                    return (max(leftX, leftY) + min(rightX, rightY)) / 2.0 
-                return max(leftX, leftY)
-            
-            elif leftX >= rightY:
-                r = partitionX - 1
+                    return (max(left1, left2) + min(right1, right2)) / 2.0
+                return max(left1, left2)
+            elif left1 > right2:
+                r = partition1 - 1
             else:
-                l = partitionX + 1
+                l = partition1 + 1
 
     # Time Complexity: O(log min(N, M))
     #   - Binary search on the shorter array only

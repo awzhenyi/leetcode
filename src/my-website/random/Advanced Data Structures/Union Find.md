@@ -2,7 +2,7 @@
 - usually use for kruskal MST, etc
 - Optimization for path / rank compression
 
-## Algorithm
+## Implementation
 ```python
 
 
