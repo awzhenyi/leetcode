@@ -19,4 +19,3 @@ class Solution:
         return True
 # Time Complexity: O(N)
 # Space Complexity: O(1)
-```
